@@ -1,0 +1,13 @@
+{
+  "name": "simple-nodejs-mongodb-app",
+  "version": "0.0.1",
+  "author": "@desteves",
+  "dependencies": {
+    "mongodb": "*",
+    "express": "*"
+  },
+  "engines": {
+    "node": "6.11.x",
+    "npm": "5.5.x"
+  }
+}

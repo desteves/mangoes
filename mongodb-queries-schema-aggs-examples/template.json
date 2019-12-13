@@ -1,0 +1,29 @@
+{
+    "domain": {
+        "$choose": {
+            "from": ["ABC", "123", "XYZ"],
+            "weights": [10, 3, 1]
+        }
+    },
+    "type": "$numberLong",
+    "name": "$string",
+    "loc": "$coordinates",
+    "attributes": {
+        "$array": {
+            "of": {
+                "key": "$name",
+                "val": {
+                    "$choose": {
+                        "from": [ {"$integer": {"min": 0, "max": 100}}, "$date", "$coordinates", "$numberDecimal", "hello world string"]
+                    }
+                }
+            },
+            "number": {
+                "$integer": {
+                    "min": 1,
+                    "max": 20
+                }
+            }
+        }
+    }
+}
