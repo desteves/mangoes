@@ -1,9 +1,10 @@
 
 # Zone Sharding Example
 
-- Set up 3 shard cluster
+- Set up 3 shard cluster with [mlaunch](http://blog.rueckstiess.com/mtools/mlaunch.html)
 
 ```bash
+
 mlaunch init --config 1 --csrs --nodes 1 --replicaset --sharded s1 s2 s3
 # launching: mongod on port 27018
 # launching: mongod on port 27019
@@ -16,21 +17,25 @@ mlaunch init --config 1 --csrs --nodes 1 --replicaset --sharded s1 s2 s3
 # launching: mongos on port 27017
 ```
 
-- Generate a bunch of sample documents
+- Generate a bunch of sample documents with [mgeneratejs](https://www.npmjs.com/package/mgeneratejs)
 
 ```bash
 mgeneratejs -n1000000  '{"tradeDate": "$date", "name": "$name" }' | mongoimport -d test -c demo
+```
+
+- Log into the Mongo Shell
+```
 mongo
 ```
 
-- Inside the MongoDB Shell run the following:
+- Inside the Mongo Shell run the following:
 
 ```javascript
 
 // Add Tags
 mongos> sh.addShardTag("s1", "recent")
-mongos> sh.addShardTag("s2", "recent")
-mongos> sh.addShardTag("s2", "recent")
+mongos> sh.addShardTag("s2", "archive")
+mongos> sh.addShardTag("s3", "archive")
 
 // Verify
 mongos> sh.status()
@@ -38,7 +43,7 @@ mongos> sh.status()
 // #         {  "_id" : "s2",  "host" : "s2/localhost:27019",  "state" : 1,  "tags" : [ "archive" ] }
 // #         {  "_id" : "s3",  "host" : "s3/localhost:27020",  "state" : 1,  "tags" : [ "archive" ] }
 
-// Active is anything newer than 105 days.
+// Archive is anything older than 105 days.
 var range = new Date(ISODate().getTime() - 1000 * 86400 * 105);
 
 // Enable Sharding at the database level
@@ -52,13 +57,13 @@ sh.shardCollection("test.demo", { "tradeDate": 1, "name": 1} );
 
 // Add Ranges and associate them with a zone
 sh.addTagRange("test.demo",                         // namespace
-  { "tradeDate" : MinKey, "name" : MinKey },  // lower bound
-  { "tradeDate" : range,  "name" : MinKey },  // upper bound
+  { "tradeDate" : MinKey, "name" : MinKey },        // lower bound
+  { "tradeDate" : range,  "name" : MinKey },        // upper bound
    "archive");                                      // zone
 
 sh.addTagRange("test.demo",                         // namespace
-  { "tradeDate" : range,  "name" : MinKey },  // lower bound
-  { "tradeDate" : MaxKey, "name" : MaxKey },  // upper bound
+  { "tradeDate" : range,  "name" : MinKey },        // lower bound
+  { "tradeDate" : MaxKey, "name" : MaxKey },        // upper bound
    "recent");                                       // zone
 
 // Verify
