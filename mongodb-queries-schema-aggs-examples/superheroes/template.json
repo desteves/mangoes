@@ -1,0 +1,739 @@
+{
+  "domain": {
+    "$choose": {
+      "from": [
+        "Marvel",
+        "Capcom",
+        "Other"
+      ],
+      "weights": [
+        10,
+        3,
+        1
+      ]
+    }
+  },
+  "visa": "$numberDecimal",
+  "born": {
+    "$date": {
+      "min": "1900-01-01",
+      "max": "2020-01-01"
+    }
+  },
+  "photo": {
+    "blob": "$binary"
+  },
+  "traveled": {
+    "countries": {
+      "$array": {
+        "of": {
+          "$country": {
+            "full": true
+          }
+        },
+        "number": {
+          "$integer": {
+            "min": 1,
+            "max": 20
+          }
+        }
+      }
+    }
+  },
+  "agentid": "$numberLong",
+  "name": "$name",
+  "lastloc": "$coordinates",
+  "superpower": {
+    "$pickset": {
+      "array": [
+        {
+          "category": "physical",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Superstrength",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Speed",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Durability",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Agility",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Reflexes",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Healing",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Regeneration",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Supersenses",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Spider-sense",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Immortality",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "transportation",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Climbing",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Swimming",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Water-breathing",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Flight",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Teleportation",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Exceptional leaping",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Phasing",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Intangibility",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "mental",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Knowledge",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Science",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Mechanical",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Electronics",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Military",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Driving",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Occult",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Super-intelligence",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Resourcefulness",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "elemental",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Basic elements",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Electricity",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Light",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Darkness",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Gravity",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Magnetic forces",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Radiation",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Energy",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Sound",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Nature",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "psychic",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Telekinesis",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Telepathy",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Mind-to-mind communication",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Mind-control",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Possession",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Memory manipulation",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Mentally generated weaponry/objects",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Mindblast",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Ability to locate someone mentally",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Forcefields",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Psychometry",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "bio",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Acid/poison",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Controlling plants and/or animals",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Shapeshifting.",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Shapeshifting–mainly useful for disguises/stealth",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            }
+          }
+        },
+        {
+          "category": "misc",
+          "ability": {
+            "$pickset": {
+              "array": [
+                {
+                  "name": "Elasticity",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Self-destruction",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Self-liquification",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Gaseous form",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Growth/shrinking",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Self-duplication",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Invisibility",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Absorbing",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Negating",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Luck manipulation",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Illusions",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                },
+                {
+                  "name": "Density",
+                  "level": {
+                    "$integer": {
+                      "min": 1,
+                      "max": 100
+                    }
+                  }
+                }
+              ],
+              "quantity": {
+                "$integer": {
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            }
+          }
+        }
+      ],
+      "quantity": {
+        "$integer": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    }
+  }
+}
