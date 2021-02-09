@@ -1,0 +1,5 @@
+{
+    "name": "s3bucket",
+    "value": "dianas3",
+    "from_secret": false
+}

@@ -1,0 +1,11 @@
+{
+    "name": "aws-professional-services",
+    "type": "aws",
+    "config": {
+        "accessKeyId": "CHANGEME"
+    },
+    "secret_config": {
+        "secretAccessKey": "aws-professional-services-secret"
+    },
+    "version": 1
+}
