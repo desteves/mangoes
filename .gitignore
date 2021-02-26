@@ -4,3 +4,5 @@
 *.cfg
 */*.cfg
 */*.cfg
+*mattermost*/REMOVE*
+*/REMOVE*.py
